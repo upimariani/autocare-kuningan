@@ -15,6 +15,7 @@
 						<li class="nav-item"><a href="#" class="nav-link">Selamat Datang,<strong> <?= $this->session->userdata('nama') ?> </strong></a></li>
 						<li class="nav-item"><a href="<?= base_url('Konsumen/cHome') ?>" class="nav-link">Home</a></li>
 						<li class="nav-item"><a href="<?= base_url('Konsumen/cTransaksi') ?>" class="nav-link">Transaksi Service</a></li>
+						<li class="nav-item"><a href="<?= base_url('Konsumen/cChatting') ?>" class="nav-link">Chatting</a></li>
 						<li class="nav-item"><a href="<?= base_url('Konsumen/cLogin/logout') ?>" class="nav-link">Logout</a></li>
 					<?php
 					}

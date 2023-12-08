@@ -38,7 +38,7 @@
 							<div class="form-group">
 								<label for="input-5">Nama Tarif</label>
 								<select name="tarif" class="form-control" required>
-									<option value="">---Pilih Level User---</option>
+									<option value="">---Pilih Nama Tarif---</option>
 									<?php
 									foreach ($tarif as $key => $value) {
 									?>
@@ -55,7 +55,7 @@
 							</div>
 							<div class="form-group">
 								<label for="input-5">Besar Promo</label>
-								<input type="text" name="besar" class="form-control" id="input-5" placeholder="Masukkan Besar Promo" required>
+								<input type="number" name="besar" class="form-control" id="input-5" placeholder="Masukkan Besar Promo" required>
 							</div>
 						</div>
 						<div class="modal-footer">
@@ -166,7 +166,7 @@ foreach ($promo as $key => $item) {
 						</div>
 						<div class="form-group">
 							<label for="input-5">Besar Promo</label>
-							<input type="text" name="besar" value="<?= $item->besar ?>" class="form-control" id="input-5" placeholder="Masukkan Besar Promo" required>
+							<input type="number" name="besar" value="<?= $item->besar ?>" class="form-control" id="input-5" placeholder="Masukkan Besar Promo" required>
 						</div>
 					</div>
 					<div class="modal-footer">

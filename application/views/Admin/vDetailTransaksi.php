@@ -25,7 +25,18 @@
 								</div>
 							</div>
 							<!-- end col -->
-
+							<?php
+							if ($detail['transaksi']->bukti_pembayaran != NULL) {
+							?>
+								<div class="col-sm-6">
+									<div class="text-muted">
+										<h5 class="font-size-16 mb-3">Bukti Pembayaran</h5>
+										<img style="width: 250px;" src="<?= base_url('asset/pembayaran/' .  $detail['transaksi']->bukti_pembayaran) ?>">
+									</div>
+								</div>
+							<?php
+							}
+							?>
 							<!-- end col -->
 						</div>
 						<!-- end row -->

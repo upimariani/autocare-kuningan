@@ -77,7 +77,12 @@
 
 								<a href="<?= base_url('Admin/cTransaksiSelesai') ?>"><i class="ik ik-check-circle"></i><span>Transaksi Selesai</span> <span class="badge badge-warning"></span> </a>
 							</div>
-
+							<div class="nav-lavel">KOMUNIKASI</div>
+							<div class="nav-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cChatting') {
+														echo 'active';
+													}  ?>">
+								<a href="<?= base_url('Admin/cChatting') ?>"><i class="ik ik-phone"></i><span>Chatting</span></a>
+							</div>
 							<div class="nav-item">
 								<a href="<?= base_url('cLogin/logout') ?>"><i class="ik ik-power"></i><span>LogOut</span></a>
 							</div>

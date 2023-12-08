@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2023 at 01:50 PM
+-- Generation Time: Dec 08, 2023 at 03:00 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -37,6 +37,14 @@ CREATE TABLE `chatting` (
   `status` int(11) NOT NULL,
   `time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `chatting`
+--
+
+INSERT INTO `chatting` (`id_chatting`, `id_pelanggan`, `id_user`, `pertanyaan`, `jawaban`, `status`, `time`) VALUES
+(1, 1, 1, 'hai', '', 2, '2023-12-08 13:34:18'),
+(2, 1, 1, '', 'hai juga', 2, '2023-12-08 13:53:21');
 
 -- --------------------------------------------------------
 
@@ -298,7 +306,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `chatting`
 --
 ALTER TABLE `chatting`
-  MODIFY `id_chatting` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_chatting` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `data_reservasi`

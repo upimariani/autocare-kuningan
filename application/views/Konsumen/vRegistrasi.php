@@ -26,7 +26,7 @@
 					</div>
 					<div class="form-group mb-3">
 						<label>No Telepon</label>
-						<input type="text" name="no_hp" class="form-control" placeholder="Masukkan No Telepon" required>
+						<input type="number" name="no_hp" class="form-control" placeholder="Masukkan No Telepon" required>
 					</div>
 					<div class="row">
 						<div class="col-lg-6">
