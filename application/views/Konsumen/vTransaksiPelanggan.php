@@ -131,6 +131,18 @@
 											} else if ($value->stat_reservasi == '2') {
 											?>
 												<span class="badge bg-info">Proses Service</span>
+												<?php
+												if ($value->bukti_pembayaran == NULL) {
+												?>
+													<?php echo form_open_multipart('Konsumen/cTransaksi/bayar/' . $value->id_reservasi); ?>
+													<label>Pembayaran</label>
+													<small>Bank. BRI <br> No. Rek 32098823-02937-01 <br> A/n. AUTOCARE KUNINGAN</small>
+													<input type="file" class="form-control" name="gambar">
+													<button type="submit" class="btn btn-success mt-2">Kirim</button>
+													</form>
+												<?php
+												}
+												?>
 											<?php
 											} else {
 											?>

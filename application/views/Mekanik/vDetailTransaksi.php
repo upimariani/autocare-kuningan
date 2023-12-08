@@ -24,6 +24,18 @@
 									<p><?= $detail['transaksi']->no_hp ?></p>
 								</div>
 							</div>
+							<?php
+							if ($detail['transaksi']->bukti_pembayaran != NULL) {
+							?>
+								<div class="col-sm-6">
+									<div class="text-muted">
+										<h5 class="font-size-16 mb-3">Bukti Pembayaran</h5>
+										<img style="width: 250px;" src="<?= base_url('asset/pembayaran/' .  $detail['transaksi']->bukti_pembayaran) ?>">
+									</div>
+								</div>
+							<?php
+							}
+							?>
 							<!-- end col -->
 
 							<!-- end col -->
@@ -88,7 +100,17 @@
 							</div><!-- end table responsive -->
 							<div class="d-print-none mt-4">
 								<div class="float-end">
-									<a href="<?= base_url('Mekanik/cTransaksi/selesai/' . $detail['transaksi']->id_reservasi)  ?>" class="btn btn-primary w-md">Selesai</a>
+									<?php
+									if ($detail['transaksi']->bukti_pembayaran != NULL) {
+									?>
+										<a href="<?= base_url('Mekanik/cTransaksi/selesai/' . $detail['transaksi']->id_reservasi)  ?>" class="btn btn-primary w-md">Selesai</a>
+									<?php
+									} else {
+									?>
+										<span class="badge bg-danger">Belum Melakukan Pembayaran</span>
+									<?php
+									}
+									?>
 								</div>
 							</div>
 						</div>

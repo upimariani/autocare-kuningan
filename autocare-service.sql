@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Des 2023 pada 13.26
--- Versi server: 10.4.6-MariaDB
--- Versi PHP: 7.3.9
+-- Generation Time: Dec 08, 2023 at 01:50 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `chatting`
+-- Table structure for table `chatting`
 --
 
 CREATE TABLE `chatting` (
@@ -41,7 +41,7 @@ CREATE TABLE `chatting` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data_reservasi`
+-- Table structure for table `data_reservasi`
 --
 
 CREATE TABLE `data_reservasi` (
@@ -52,7 +52,7 @@ CREATE TABLE `data_reservasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `data_reservasi`
+-- Dumping data for table `data_reservasi`
 --
 
 INSERT INTO `data_reservasi` (`id_transaksi`, `id_reservasi`, `id_sparepart`, `qty`) VALUES
@@ -62,7 +62,7 @@ INSERT INTO `data_reservasi` (`id_transaksi`, `id_reservasi`, `id_sparepart`, `q
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data_sparepart`
+-- Table structure for table `data_sparepart`
 --
 
 CREATE TABLE `data_sparepart` (
@@ -75,7 +75,7 @@ CREATE TABLE `data_sparepart` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `data_sparepart`
+-- Dumping data for table `data_sparepart`
 --
 
 INSERT INTO `data_sparepart` (`id_sparepart`, `nama_sparepart`, `satuan`, `harga`, `stok`, `gambar`) VALUES
@@ -95,7 +95,7 @@ INSERT INTO `data_sparepart` (`id_sparepart`, `nama_sparepart`, `satuan`, `harga
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data_tarif`
+-- Table structure for table `data_tarif`
 --
 
 CREATE TABLE `data_tarif` (
@@ -105,7 +105,7 @@ CREATE TABLE `data_tarif` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `data_tarif`
+-- Dumping data for table `data_tarif`
 --
 
 INSERT INTO `data_tarif` (`id_tarif`, `nama_service`, `harga`) VALUES
@@ -119,7 +119,7 @@ INSERT INTO `data_tarif` (`id_tarif`, `nama_service`, `harga`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pelanggan`
+-- Table structure for table `pelanggan`
 --
 
 CREATE TABLE `pelanggan` (
@@ -132,7 +132,7 @@ CREATE TABLE `pelanggan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pelanggan`
+-- Dumping data for table `pelanggan`
 --
 
 INSERT INTO `pelanggan` (`id_pelanggan`, `nama_pelanggan`, `alamat`, `no_hp`, `username`, `password`) VALUES
@@ -142,7 +142,7 @@ INSERT INTO `pelanggan` (`id_pelanggan`, `nama_pelanggan`, `alamat`, `no_hp`, `u
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `promo`
+-- Table structure for table `promo`
 --
 
 CREATE TABLE `promo` (
@@ -154,7 +154,7 @@ CREATE TABLE `promo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `promo`
+-- Dumping data for table `promo`
 --
 
 INSERT INTO `promo` (`id_promo`, `id_tarif`, `tgl_promo`, `nama_promo`, `besar`) VALUES
@@ -164,7 +164,7 @@ INSERT INTO `promo` (`id_promo`, `id_tarif`, `tgl_promo`, `nama_promo`, `besar`)
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `reservasi_service`
+-- Table structure for table `reservasi_service`
 --
 
 CREATE TABLE `reservasi_service` (
@@ -176,22 +176,23 @@ CREATE TABLE `reservasi_service` (
   `model_kendaraan` varchar(125) NOT NULL,
   `brand_kendaraan` varchar(125) NOT NULL,
   `stat_reservasi` int(11) NOT NULL,
-  `total_pembayaran` varchar(15) NOT NULL
+  `total_pembayaran` varchar(15) NOT NULL,
+  `bukti_pembayaran` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `reservasi_service`
+-- Dumping data for table `reservasi_service`
 --
 
-INSERT INTO `reservasi_service` (`id_reservasi`, `id_pelanggan`, `id_tarif`, `date`, `plat_kendaraan`, `model_kendaraan`, `brand_kendaraan`, `stat_reservasi`, `total_pembayaran`) VALUES
-(1, 1, 1, '2023-12-02', 'E 6485 SA', 'sdsd', 'asaasfa', 3, '62000'),
-(2, 1, 1, '2023-12-02', 'E 6732 ZA', 'sd', 'asa', 3, '54000'),
-(3, 2, 0, '2023-12-05', 'E 3452 SU', 'Model A', 'Kijang', 1, '0');
+INSERT INTO `reservasi_service` (`id_reservasi`, `id_pelanggan`, `id_tarif`, `date`, `plat_kendaraan`, `model_kendaraan`, `brand_kendaraan`, `stat_reservasi`, `total_pembayaran`, `bukti_pembayaran`) VALUES
+(1, 1, 1, '2023-12-02', 'E 6485 SA', 'sdsd', 'asaasfa', 3, '62000', 'Ini-Dia-Bukti-Transfer-Mandiri-Dari-ATM-mBanking-dan-Internet-Banking-Mandiri-11.jpg'),
+(2, 1, 1, '2023-12-02', 'E 6732 ZA', 'sd', 'asa', 2, '54000', NULL),
+(3, 2, 0, '2023-12-05', 'E 3452 SU', 'Model A', 'Kijang', 1, '0', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ulasan`
+-- Table structure for table `ulasan`
 --
 
 CREATE TABLE `ulasan` (
@@ -202,7 +203,7 @@ CREATE TABLE `ulasan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `ulasan`
+-- Dumping data for table `ulasan`
 --
 
 INSERT INTO `ulasan` (`id_ulasan`, `id_reservasi`, `rating`, `testimoni`) VALUES
@@ -211,7 +212,7 @@ INSERT INTO `ulasan` (`id_ulasan`, `id_reservasi`, `rating`, `testimoni`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -222,7 +223,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `kategori_user`) VALUES
@@ -236,113 +237,113 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `kategori_user`) VALUES
 --
 
 --
--- Indeks untuk tabel `chatting`
+-- Indexes for table `chatting`
 --
 ALTER TABLE `chatting`
   ADD PRIMARY KEY (`id_chatting`);
 
 --
--- Indeks untuk tabel `data_reservasi`
+-- Indexes for table `data_reservasi`
 --
 ALTER TABLE `data_reservasi`
   ADD PRIMARY KEY (`id_transaksi`);
 
 --
--- Indeks untuk tabel `data_sparepart`
+-- Indexes for table `data_sparepart`
 --
 ALTER TABLE `data_sparepart`
   ADD PRIMARY KEY (`id_sparepart`);
 
 --
--- Indeks untuk tabel `data_tarif`
+-- Indexes for table `data_tarif`
 --
 ALTER TABLE `data_tarif`
   ADD PRIMARY KEY (`id_tarif`);
 
 --
--- Indeks untuk tabel `pelanggan`
+-- Indexes for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
   ADD PRIMARY KEY (`id_pelanggan`);
 
 --
--- Indeks untuk tabel `promo`
+-- Indexes for table `promo`
 --
 ALTER TABLE `promo`
   ADD PRIMARY KEY (`id_promo`);
 
 --
--- Indeks untuk tabel `reservasi_service`
+-- Indexes for table `reservasi_service`
 --
 ALTER TABLE `reservasi_service`
   ADD PRIMARY KEY (`id_reservasi`);
 
 --
--- Indeks untuk tabel `ulasan`
+-- Indexes for table `ulasan`
 --
 ALTER TABLE `ulasan`
   ADD PRIMARY KEY (`id_ulasan`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `chatting`
+-- AUTO_INCREMENT for table `chatting`
 --
 ALTER TABLE `chatting`
   MODIFY `id_chatting` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `data_reservasi`
+-- AUTO_INCREMENT for table `data_reservasi`
 --
 ALTER TABLE `data_reservasi`
   MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `data_sparepart`
+-- AUTO_INCREMENT for table `data_sparepart`
 --
 ALTER TABLE `data_sparepart`
   MODIFY `id_sparepart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `data_tarif`
+-- AUTO_INCREMENT for table `data_tarif`
 --
 ALTER TABLE `data_tarif`
   MODIFY `id_tarif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `pelanggan`
+-- AUTO_INCREMENT for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
   MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `promo`
+-- AUTO_INCREMENT for table `promo`
 --
 ALTER TABLE `promo`
   MODIFY `id_promo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `reservasi_service`
+-- AUTO_INCREMENT for table `reservasi_service`
 --
 ALTER TABLE `reservasi_service`
   MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `ulasan`
+-- AUTO_INCREMENT for table `ulasan`
 --
 ALTER TABLE `ulasan`
   MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;

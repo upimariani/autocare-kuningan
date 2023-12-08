@@ -11,6 +11,11 @@ class mTransaksiPelanggan extends CI_Model
 		$this->db->where('pelanggan.id_pelanggan', $this->session->userdata('id_konsumen'));
 		return $this->db->get()->result();
 	}
+	public function bayar($id, $data)
+	{
+		$this->db->where('id_reservasi', $id);
+		$this->db->update('reservasi_service', $data);
+	}
 }
 
 /* End of file mTransaksiPelanggan.php */

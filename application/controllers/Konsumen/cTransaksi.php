@@ -31,6 +31,32 @@ class cTransaksi extends CI_Controller
 		$this->session->set_flashdata('success', 'Ulasan Berhasil Dikirim!');
 		redirect('Konsumen/cTransaksi');
 	}
+	public function bayar($id)
+	{
+		$config['upload_path']          = './asset/pembayaran';
+		$config['allowed_types']        = 'gif|jpg|png|jpeg';
+		$config['max_size']             = 500000;
+
+		$this->load->library('upload', $config);
+		if (!$this->upload->do_upload('gambar')) {
+
+			$data = array(
+				'transaksi' => $this->mTransaksiPelanggan->transaksi()
+			);
+			$this->load->view('Konsumen/Layout/head');
+			$this->load->view('Konsumen/Layout/nav');
+			$this->load->view('Konsumen/vTransaksiPelanggan', $data);
+			$this->load->view('Konsumen/Layout/footer');
+		} else {
+			$upload_data = $this->upload->data();
+			$data = array(
+				'bukti_pembayaran' => $upload_data['file_name']
+			);
+			$this->mTransaksiPelanggan->bayar($id, $data);
+			$this->session->set_flashdata('success', 'Anda berhasil melakukan pembayaran!!!');
+			redirect('Konsumen/cTransaksi');
+		}
+	}
 }
 
 /* End of file cTransaksi.php */
