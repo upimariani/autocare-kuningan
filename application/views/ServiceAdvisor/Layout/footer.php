@@ -181,6 +181,33 @@
 <script src="<?= base_url('asset/themekit-master/') ?>js/datatables.js"></script>
 <script src="<?= base_url('asset/chart/js_chart.js') ?>"></script>
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#kota').change(function() {
+			var id = $(this).val();
+			$.ajax({
+				url: "<?php echo site_url('ServiceAdvisor/cTransaksi/add_ajax_sparepart'); ?>",
+				method: "POST",
+				data: {
+					id: id
+				},
+				async: true,
+				dataType: 'json',
+				success: function(data) {
+
+					var html = '';
+					var i;
+					for (i = 0; i < data.length; i++) {
+						html += '<option value=' + data[i].id_sparepart + '>' + data[i].nama_sparepart + '</option>';
+					}
+					$('#sparepart').html(html);
+				}
+			});
+			return false;
+		});
+
+	});
+</script>
 <script>
 	(function(b, o, i, l, e, r) {
 		b.GoogleAnalyticsObject = l;
@@ -201,7 +228,7 @@
 	console.log = function() {}
 	$("#sparepart").on('change', function() {
 
-		$(".nama").html($(this).find(':selected').attr('data-nama'));
+		$(".nama ").html($(this).find(':selected').attr('data-nama'));
 		$(".nama").val($(this).find(':selected').attr('data-nama'));
 
 

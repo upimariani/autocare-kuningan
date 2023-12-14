@@ -18,7 +18,7 @@
 		<div class="row no-gutters">
 			<div class="col-md-12	featured-top">
 				<div class="row no-gutters">
-					<div class="col-md-4 d-flex align-items-center">
+					<div class="col-md-6 d-flex align-items-center">
 						<form action="<?= base_url('Konsumen/cHome/reservasi') ?>" method="POST" class="request-form ftco-animate bg-primary">
 							<h2>Reservasi Service</h2>
 							<?php
@@ -30,18 +30,51 @@
 							<?php
 							}
 							?>
-							<div class="form-group">
-								<label for="" class="label">Plat Kendaraan</label>
-								<input type="text" name="plat" class="form-control" placeholder="Masukkan Plat Kendaraan" required>
+							<div class="d-flex">
+								<div class="form-group mr-2">
+									<label for="" class="label">Plat Kendaraan</label>
+									<input type="text" name="plat" class="form-control" placeholder="Masukkan Plat Kendaraan" required>
+								</div>
+								<div class="form-group ml-2">
+									<label for="" class="label">Tahun Kendaraan</label>
+									<input type="text" name="tahun" class="form-control" placeholder="Masukkan Tahun Kendaraan" required>
+								</div>
 							</div>
+
 							<div class="d-flex">
 								<div class="form-group mr-2">
 									<label for="" class="label">Model Kendaraan</label>
-									<input type="text" name="model" class="form-control" placeholder="Model Kendaraan" required>
+									<select class="custom-select" name="model" required>
+										<option value="">---Model Kendaraan---</option>
+										<option value="Sedan">Sedan</option>
+										<option value="Mini Van">Mini Van</option>
+									</select>
 								</div>
 								<div class="form-group ml-2">
 									<label for="" class="label">Brand Kendaraan</label>
-									<input type="text" name="brand" class="form-control" placeholder="Masukkan Brand" required>
+									<select class="custom-select" name="brand" required>
+										<option value="">---Brand Kendaraan---</option>
+										<option value="Honda">Honda</option>
+										<option value="Suzuki">Suzuki</option>
+										<option value="BMW">BMW</option>
+										<option value="Daihatsu">Daihatsu</option>
+										<option value="Toyota">Toyota</option>
+									</select>
+								</div>
+							</div>
+							<div class="d-flex">
+								<div class="form-group mr-2">
+									<label for="" class="label">Jam Kedatangan</label>
+									<input type="time" name="jam" min="09:00" max="18:00" name="plat" class="form-control" placeholder="Masukkan Plat Kendaraan" required>
+								</div>
+								<div class="form-group ml-2">
+									<label for="" class="label">Jenis Service</label>
+									<select class="custom-select" name="jenis" required>
+										<option value="">---Jenis Service---</option>
+										<option value="Ganti Oli">Ganti Oli</option>
+										<option value="Tune Up">Tune Up</option>
+										<option value="Ganti Aki">Ganti Aki</option>
+									</select>
 								</div>
 							</div>
 							<div class="form-group">
@@ -49,7 +82,7 @@
 							</div>
 						</form>
 					</div>
-					<div class="col-md-8 d-flex align-items-center">
+					<div class="col-md-6 d-flex align-items-center">
 						<div class="services-wrap rounded-right w-100">
 							<h3 class="heading-section mb-4">Better Way to Service Your Perfect Vehicle</h3>
 							<div class="row d-flex mb-4">

@@ -65,7 +65,7 @@
 												<th scope="row"><?= $no++ ?></th>
 												<td>
 													<div>
-														<h5 class="text-truncate font-size-14 mb-1"><?= $value->nama_sparepart ?></h5>
+														<p class="text-truncate font-size-12 mb-1"><?= $value->nama_sparepart ?></p>
 													</div>
 												</td>
 												<td>Rp. <?= number_format($value->harga) ?></td>

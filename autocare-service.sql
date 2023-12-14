@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2023 at 03:00 PM
+-- Generation Time: Dec 14, 2023 at 02:27 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -65,7 +65,8 @@ CREATE TABLE `data_reservasi` (
 
 INSERT INTO `data_reservasi` (`id_transaksi`, `id_reservasi`, `id_sparepart`, `qty`) VALUES
 (1, 1, 1, 3),
-(2, 2, 1, 1);
+(2, 2, 1, 1),
+(3, 1, 12, 2);
 
 -- --------------------------------------------------------
 
@@ -76,6 +77,7 @@ INSERT INTO `data_reservasi` (`id_transaksi`, `id_reservasi`, `id_sparepart`, `q
 CREATE TABLE `data_sparepart` (
   `id_sparepart` int(11) NOT NULL,
   `nama_sparepart` varchar(125) NOT NULL,
+  `kategori` int(11) NOT NULL,
   `satuan` varchar(20) NOT NULL,
   `harga` varchar(15) NOT NULL,
   `stok` int(11) NOT NULL,
@@ -86,19 +88,19 @@ CREATE TABLE `data_sparepart` (
 -- Dumping data for table `data_sparepart`
 --
 
-INSERT INTO `data_sparepart` (`id_sparepart`, `nama_sparepart`, `satuan`, `harga`, `stok`, `gambar`) VALUES
-(1, 'Castrol Manual GL-4 80W-90 Oli Transmisi', 'liter', '75000', 100, 'a.jpg'),
-(2, 'Oli Mobil Super 1000 15w40 1 liter', 'liter', '95000', 100, 'b.jpg'),
-(3, 'Cabin Air Filter Ac Agya Ayla Calya Sigra Denso 145520-2510', 'pcs', '75000', 100, 'c.jpg'),
-(4, 'TIMING BELT M. L300 \'84 BENSIN DELUXE', 'pcs', '210000', 100, 'd.jpg'),
-(5, 'Busi Brisk Mobil ', 'pcs', '275000', 100, 'e.jpg'),
-(6, 'Aki Mobil ', 'pcs', '600000', 100, 'f.jpg'),
-(7, 'Disc Brake Runstop Toyota Fortuner VNT dan VRZ - VNT 05-15', 'pcs', '2900000', 100, 'g.jpg'),
-(8, 'Ban Mobil Bridgestone B250 185/65 R15 ', 'pcs', '1000000', 100, 'h.jpg'),
-(9, 'TOP 1 EVOLUTION SAE 5W-30 API SN GASOLINE', 'pcs', '100000', 100, 'i.jpg'),
-(10, 'LED Fog Angel Eyes', 'pcs', '200000', 100, 'j.jpg'),
-(11, 'Filter Oli Toyota Avanza 15601 - 87702', 'liter', '23500', 100, 'k.jpg'),
-(12, 'STP Brake Fluid (Cairan Minyak Rem) DOT 4 Mobil Motor 300 ml PUTIH', 'pcs', '35000', 100, 'l.jpg');
+INSERT INTO `data_sparepart` (`id_sparepart`, `nama_sparepart`, `kategori`, `satuan`, `harga`, `stok`, `gambar`) VALUES
+(1, 'Castrol Manual GL-4 80W-90 Oli Transmisi', 1, 'liter', '75000', 100, 'a.jpg'),
+(2, 'Oli Mobil Super 1000 15w40 1 liter', 1, 'liter', '95000', 100, 'b.jpg'),
+(3, 'Cabin Air Filter Ac Agya Ayla Calya Sigra Denso 145520-2510', 3, 'pcs', '75000', 100, 'c.jpg'),
+(4, 'TIMING BELT M. L300 \'84 BENSIN DELUXE', 5, 'pcs', '210000', 100, 'd.jpg'),
+(5, 'Busi Brisk Mobil ', 5, 'pcs', '275000', 100, 'e.jpg'),
+(6, 'Aki Mobil ', 4, 'pcs', '600000', 100, 'f.jpg'),
+(7, 'Disc Brake Runstop Toyota Fortuner VNT dan VRZ - VNT 05-15', 3, 'pcs', '2900000', 100, 'g.jpg'),
+(8, 'Ban Mobil Bridgestone B250 185/65 R15 ', 2, 'pcs', '1000000', 100, 'h.jpg'),
+(9, 'TOP 1 EVOLUTION SAE 5W-30 API SN GASOLINE', 3, 'pcs', '100000', 100, 'i.jpg'),
+(10, 'LED Fog Angel Eyes', 3, 'pcs', '200000', 100, 'j.jpg'),
+(11, 'Filter Oli Toyota Avanza 15601 - 87702', 1, 'liter', '23500', 100, 'k.jpg'),
+(12, 'STP Brake Fluid (Cairan Minyak Rem) DOT 4 Mobil Motor 300 ml PUTIH', 1, 'pcs', '35000', 98, 'l.jpg');
 
 -- --------------------------------------------------------
 
@@ -183,19 +185,21 @@ CREATE TABLE `reservasi_service` (
   `plat_kendaraan` varchar(125) NOT NULL,
   `model_kendaraan` varchar(125) NOT NULL,
   `brand_kendaraan` varchar(125) NOT NULL,
+  `tahun_kendaraan` int(11) NOT NULL,
+  `jam_kedatangan` varchar(15) NOT NULL,
+  `jenis_service` varchar(125) NOT NULL,
   `stat_reservasi` int(11) NOT NULL,
   `total_pembayaran` varchar(15) NOT NULL,
-  `bukti_pembayaran` text DEFAULT NULL
+  `bukti_pembayaran` text DEFAULT NULL,
+  `service_sesuai` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `reservasi_service`
 --
 
-INSERT INTO `reservasi_service` (`id_reservasi`, `id_pelanggan`, `id_tarif`, `date`, `plat_kendaraan`, `model_kendaraan`, `brand_kendaraan`, `stat_reservasi`, `total_pembayaran`, `bukti_pembayaran`) VALUES
-(1, 1, 1, '2023-12-02', 'E 6485 SA', 'sdsd', 'asaasfa', 3, '62000', 'Ini-Dia-Bukti-Transfer-Mandiri-Dari-ATM-mBanking-dan-Internet-Banking-Mandiri-11.jpg'),
-(2, 1, 1, '2023-12-02', 'E 6732 ZA', 'sd', 'asa', 2, '54000', NULL),
-(3, 2, 0, '2023-12-05', 'E 3452 SU', 'Model A', 'Kijang', 1, '0', NULL);
+INSERT INTO `reservasi_service` (`id_reservasi`, `id_pelanggan`, `id_tarif`, `date`, `plat_kendaraan`, `model_kendaraan`, `brand_kendaraan`, `tahun_kendaraan`, `jam_kedatangan`, `jenis_service`, `stat_reservasi`, `total_pembayaran`, `bukti_pembayaran`, `service_sesuai`) VALUES
+(1, 1, 3, '2023-12-13', 'E 6485 SA', 'Sedan', 'Suzuki', 2020, '09:00', 'Ganti Oli', 3, '420000', 'Ini-Dia-Bukti-Transfer-Mandiri-Dari-ATM-mBanking-dan-Internet-Banking-Mandiri-12.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -215,7 +219,7 @@ CREATE TABLE `ulasan` (
 --
 
 INSERT INTO `ulasan` (`id_ulasan`, `id_reservasi`, `rating`, `testimoni`) VALUES
-(1, 1, 5, 'ramah banget');
+(1, 1, 4, 'Bagus banget pelayaannya');
 
 -- --------------------------------------------------------
 
@@ -312,13 +316,13 @@ ALTER TABLE `chatting`
 -- AUTO_INCREMENT for table `data_reservasi`
 --
 ALTER TABLE `data_reservasi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `data_sparepart`
 --
 ALTER TABLE `data_sparepart`
-  MODIFY `id_sparepart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_sparepart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `data_tarif`
@@ -342,7 +346,7 @@ ALTER TABLE `promo`
 -- AUTO_INCREMENT for table `reservasi_service`
 --
 ALTER TABLE `reservasi_service`
-  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_reservasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `ulasan`

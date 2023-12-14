@@ -9,7 +9,15 @@
 		</div>
 	</div>
 </section>
-
+<?php
+if ($this->session->userdata('success')) {
+?>
+	<div class="alert alert-success" role="alert">
+		<?= $this->session->userdata('success') ?>
+	</div>
+<?php
+}
+?>
 <section class="ftco-section ftco-cart">
 	<div class="container">
 		<div class="row">
@@ -32,19 +40,33 @@
 
 								<tr class="">
 									<td class="car-image">
-										<h3><?= $value->plat_kendaraan ?></h3>
+										<h5><?= $value->plat_kendaraan ?></h5>
 									</td>
 									<td class="product-name">
-										<h3><?= $value->brand_kendaraan ?></h3>
+										<h5><?= $value->brand_kendaraan ?> | <?= $value->model_kendaraan ?> <?= $value->tahun_kendaraan ?> </h5>
 
 										<?php
 										if ($value->stat_reservasi == '3') {
 											$cek_data = $this->db->query("SELECT * FROM `ulasan` WHERE id_reservasi='" . $value->id_reservasi . "'")->row();
 											if (!$cek_data) {
+												if ($value->service_sesuai == '0') {
 										?>
-												<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<?= $value->id_reservasi ?>">
-													Penilaian
-												</button>
+													<small>Apakah service sesuai dengan keinginan anda?</small><br>
+													<a class="btn btn-success mr-2" href="<?= base_url('Konsumen/cTransaksi/sesuai/' . $value->id_reservasi) ?>">
+														Sesuai?
+													</a><a class="btn btn-danger" href="<?= base_url('Konsumen/cTransaksi/tidak_sesuai/' . $value->id_reservasi) ?>">
+														Kurang Sesuai?
+													</a>
+												<?php
+												} else {
+												?>
+													<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal<?= $value->id_reservasi ?>">
+														Penilaian
+													</button>
+												<?php
+												}
+												?>
+
 											<?php
 											} else {
 											?>

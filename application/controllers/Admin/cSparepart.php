@@ -42,6 +42,7 @@ class cSparepart extends CI_Controller
 			$upload_data = $this->upload->data();
 			$data = array(
 				'nama_sparepart' => $this->input->post('nama'),
+				'kategori' => $this->input->post('kategori'),
 				'satuan' => $this->input->post('satuan'),
 				'harga' => $this->input->post('harga'),
 				'stok' => $this->input->post('stok'),
@@ -74,6 +75,7 @@ class cSparepart extends CI_Controller
 			$upload_data =  $this->upload->data();
 			$data = array(
 				'nama_sparepart' => $this->input->post('nama'),
+				'kategori' => $this->input->post('kategori'),
 				'satuan' => $this->input->post('satuan'),
 				'harga' => $this->input->post('harga'),
 				'stok' => $this->input->post('stok'),
@@ -85,6 +87,7 @@ class cSparepart extends CI_Controller
 		} //tanpa ganti gambar
 		$data = array(
 			'nama_sparepart' => $this->input->post('nama'),
+			'kategori' => $this->input->post('kategori'),
 			'satuan' => $this->input->post('satuan'),
 			'harga' => $this->input->post('harga'),
 			'stok' => $this->input->post('stok')

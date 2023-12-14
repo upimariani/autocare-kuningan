@@ -33,7 +33,12 @@ class cTransaksi extends CI_Controller
 		$this->load->view('ServiceAdvisor/Layout/head');
 		$this->load->view('ServiceAdvisor/Layout/sidebar');
 		$this->load->view('ServiceAdvisor/vAddSparepart', $data);
-		$this->load->view('ServiceAdvisor/Layout/footer');
+	}
+	function add_ajax_sparepart()
+	{
+		$id = $this->input->post('id', TRUE);
+		$data = $this->db->query("SELECT * FROM `data_sparepart` WHERE kategori='" . $id . "'")->result();
+		echo json_encode($data);
 	}
 
 	//cart

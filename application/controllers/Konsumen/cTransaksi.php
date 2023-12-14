@@ -57,6 +57,26 @@ class cTransaksi extends CI_Controller
 			redirect('Konsumen/cTransaksi');
 		}
 	}
+	public function sesuai($id)
+	{
+		$data = array(
+			'service_sesuai' => '1'
+		);
+		$this->db->where('id_reservasi', $id);
+		$this->db->update('reservasi_service', $data);
+		$this->session->set_flashdata('success', 'Terimakasi Telah Mempercayakan Kepada Kami!');
+		redirect('Konsumen/cTransaksi');
+	}
+	public function tidak_sesuai($id)
+	{
+		$data = array(
+			'service_sesuai' => '2'
+		);
+		$this->db->where('id_reservasi', $id);
+		$this->db->update('reservasi_service', $data);
+		$this->session->set_flashdata('success', 'Terimakasi Telah Memberikan Saran! Kami akan perbaiki kedepannya!');
+		redirect('Konsumen/cTransaksi');
+	}
 }
 
 /* End of file cTransaksi.php */

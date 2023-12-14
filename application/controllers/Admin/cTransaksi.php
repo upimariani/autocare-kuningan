@@ -29,6 +29,23 @@ class cTransaksi extends CI_Controller
 		$this->session->set_flashdata('success', 'Reservasi Service Berhasil Dikonfirmasi!');
 		redirect('Admin/cTransaksi');
 	}
+	public function update_jam($id)
+	{
+		$data = array(
+			'jam_kedatangan' => $this->input->post('jam')
+		);
+		$this->db->where('id_reservasi', $id);
+		$this->db->update('reservasi_service', $data);
+		$this->session->set_flashdata('success', 'Jam Kedatangan Berhasil Diperbaharui!');
+		redirect('Admin/cTransaksi');
+	}
+	public function batalkan($id)
+	{
+		$this->db->where('id_reservasi', $id);
+		$this->db->delete('reservasi_service');
+		$this->session->set_flashdata('success', 'Jam Kedatangan Berhasil Ditolak!');
+		redirect('Admin/cTransaksi');
+	}
 }
 
 /* End of file cTransaksi.php */

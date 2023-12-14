@@ -52,6 +52,17 @@
 							<input type="number" name="stok" class="form-control" id="input-5" placeholder="Masukkan Stok" required>
 						</div>
 						<div class="form-group">
+							<label for="input-5">Kategori Sparepart</label>
+							<select class="form-control" name="kategori">
+								<option value="">---Kategori Sparepart---</option>
+								<option value="1">Oli</option>
+								<option value="2">Ban</option>
+								<option value="3">Aksesoris</option>
+								<option value="4">Aki</option>
+								<option value="5">Dll</option>
+							</select>
+						</div>
+						<div class="form-group">
 							<label for="input-5">Gambar</label>
 							<input type="file" name="gambar" class="form-control" id="input-5" required>
 						</div>
@@ -105,7 +116,21 @@
 								?>
 									<tr>
 										<th scope="row"><?= $no++ ?>.</th>
-										<td><?= $value->nama_sparepart ?></td>
+										<td><?= $value->nama_sparepart ?><br>
+											Kategori : <?php
+														if ($value->kategori == '1') {
+															echo 'Oli';
+														} else if ($value->kategori == '2') {
+															echo 'Ban';
+														} else if ($value->kategori == '3') {
+															echo 'Aksesoris';
+														} else if ($value->kategori == '4') {
+															echo 'Aki';
+														} else if ($value->kategori == '5') {
+															echo 'dll';
+														}
+														?>
+										</td>
 										<td><img style="width: 150px;" src="<?= base_url('asset/foto-sparepart/' . $value->gambar) ?>"></td>
 										<td><?= $value->satuan ?></td>
 										<td>Rp. <?= number_format($value->harga) ?></td>
@@ -113,7 +138,7 @@
 
 										<td class="text-center">
 											<div class="table-actions">
-												<button class="btn btn-light" type="button" data-toggle="modal" data-target="#edit<?= $value->id_sparepart  ?>"><i class="ik ik-edit-2"></i></button>
+												<a class="btn btn-light" data-toggle="modal" data-target="#edit<?= $value->id_sparepart  ?>"><i class="ik ik-edit-2"></i></a>
 												<a href="<?= base_url('Admin/cSparepart/delete/' . $value->id_sparepart) ?>"><i class="ik ik-trash-2"></i></a>
 											</div>
 										</td>
@@ -158,6 +183,27 @@ foreach ($sparepart as $key => $value) {
 						<input type="number" name="stok" value="<?= $value->stok ?>" class="form-control" id="input-5" placeholder="Masukkan Stok" required>
 					</div>
 					<div class="form-group">
+						<label for="input-5">Kategori Sparepart</label>
+						<select class="form-control" name="kategori">
+							<option value="">---Kategori Sparepart---</option>
+							<option value="1" <?php if ($value->kategori == '1') {
+													echo 'selected';
+												} ?>>Oli</option>
+							<option value="2" <?php if ($value->kategori == '2') {
+													echo 'selected';
+												} ?>>Ban</option>
+							<option value="3" <?php if ($value->kategori == '3') {
+													echo 'selected';
+												} ?>>Aksesoris</option>
+							<option value="4" <?php if ($value->kategori == '4') {
+													echo 'selected';
+												} ?>>Aki</option>
+							<option value="5" <?php if ($value->kategori == '5') {
+													echo 'selected';
+												} ?>>Dll</option>
+						</select>
+					</div>
+					<div class="form-group">
 						<label for="input-5">Gambar</label><br>
 						<img style="width: 150px;" src="<?= base_url('asset/foto-sparepart/' . $value->gambar) ?>">
 						<input type="file" name="gambar" class="form-control" id="input-5">
@@ -173,4 +219,5 @@ foreach ($sparepart as $key => $value) {
 	</div>
 <?php
 }
+
 ?>

@@ -30,6 +30,9 @@ class cHome extends CI_Controller
 			'plat_kendaraan' => $this->input->post('plat'),
 			'model_kendaraan' => $this->input->post('model'),
 			'brand_kendaraan' => $this->input->post('brand'),
+			'tahun_kendaraan' => $this->input->post('tahun'),
+			'jam_kedatangan' => $this->input->post('jam'),
+			'jenis_service' => $this->input->post('jenis'),
 			'stat_reservasi' => '0',
 			'total_pembayaran' => '0'
 		);
