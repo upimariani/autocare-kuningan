@@ -152,7 +152,16 @@ if ($this->session->userdata('success')) {
 											<?php
 											} else if ($value->stat_reservasi == '2') {
 											?>
-												<span class="badge bg-info">Proses Service</span>
+												<span class="badge bg-info">Proses Service <br>
+													<?php
+													if ($value->estimasi_service != NULL) {
+													?>
+														Estimasi Selesai: <?= $value->estimasi_service ?>
+													<?php
+													}
+													?>
+
+												</span>
 												<?php
 												if ($value->bukti_pembayaran == NULL) {
 												?>

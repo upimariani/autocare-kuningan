@@ -20,6 +20,17 @@ class cTransaksi extends CI_Controller
 		$this->load->view('Mekanik/vTransaksi', $data);
 		$this->load->view('Mekanik/Layout/footer');
 	}
+	public function estimasi_waktu($id)
+	{
+		$data = array(
+			'estimasi_service' => $this->input->post('waktu')
+		);
+		$this->db->where('id_reservasi', $id);
+		$this->db->update('reservasi_service', $data);
+
+		$this->session->set_flashdata('success', 'Data estimasi berhasil ditambahkan!');
+		redirect('Mekanik/cTransaksi');
+	}
 	public function detail_service($id)
 	{
 		$data = array(

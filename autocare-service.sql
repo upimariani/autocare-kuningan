@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2023 at 02:27 AM
+-- Generation Time: Dec 21, 2023 at 03:49 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -187,6 +187,7 @@ CREATE TABLE `reservasi_service` (
   `brand_kendaraan` varchar(125) NOT NULL,
   `tahun_kendaraan` int(11) NOT NULL,
   `jam_kedatangan` varchar(15) NOT NULL,
+  `estimasi_service` text DEFAULT NULL,
   `jenis_service` varchar(125) NOT NULL,
   `stat_reservasi` int(11) NOT NULL,
   `total_pembayaran` varchar(15) NOT NULL,
@@ -198,8 +199,8 @@ CREATE TABLE `reservasi_service` (
 -- Dumping data for table `reservasi_service`
 --
 
-INSERT INTO `reservasi_service` (`id_reservasi`, `id_pelanggan`, `id_tarif`, `date`, `plat_kendaraan`, `model_kendaraan`, `brand_kendaraan`, `tahun_kendaraan`, `jam_kedatangan`, `jenis_service`, `stat_reservasi`, `total_pembayaran`, `bukti_pembayaran`, `service_sesuai`) VALUES
-(1, 1, 3, '2023-12-13', 'E 6485 SA', 'Sedan', 'Suzuki', 2020, '09:00', 'Ganti Oli', 3, '420000', 'Ini-Dia-Bukti-Transfer-Mandiri-Dari-ATM-mBanking-dan-Internet-Banking-Mandiri-12.jpg', 2);
+INSERT INTO `reservasi_service` (`id_reservasi`, `id_pelanggan`, `id_tarif`, `date`, `plat_kendaraan`, `model_kendaraan`, `brand_kendaraan`, `tahun_kendaraan`, `jam_kedatangan`, `estimasi_service`, `jenis_service`, `stat_reservasi`, `total_pembayaran`, `bukti_pembayaran`, `service_sesuai`) VALUES
+(1, 1, 3, '2023-12-13', 'E 6485 SA', 'Sedan', 'Suzuki', 2020, '09:00', '10:44', 'Ganti Oli', 3, '420000', 'Ini-Dia-Bukti-Transfer-Mandiri-Dari-ATM-mBanking-dan-Internet-Banking-Mandiri-12.jpg', 2);
 
 -- --------------------------------------------------------
 

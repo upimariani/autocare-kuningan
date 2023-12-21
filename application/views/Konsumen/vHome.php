@@ -65,7 +65,7 @@
 							<div class="d-flex">
 								<div class="form-group mr-2">
 									<label for="" class="label">Jam Kedatangan</label>
-									<input type="time" name="jam" min="09:00" max="18:00" name="plat" class="form-control" placeholder="Masukkan Plat Kendaraan" required>
+									<input type="time" name="jam" min="08:00" max="16:00" name="plat" class="form-control" placeholder="Masukkan Plat Kendaraan" required>
 								</div>
 								<div class="form-group ml-2">
 									<label for="" class="label">Jenis Service</label>
