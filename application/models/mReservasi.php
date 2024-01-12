@@ -8,8 +8,9 @@ class mReservasi extends CI_Model
 	{
 		$data['konfirmasi_admin'] = $this->db->query("SELECT * FROM `reservasi_service` JOIN pelanggan ON pelanggan.id_pelanggan=reservasi_service.id_pelanggan WHERE stat_reservasi='0'")->result();
 		$data['service_advisor'] = $this->db->query("SELECT * FROM `reservasi_service` JOIN pelanggan ON pelanggan.id_pelanggan=reservasi_service.id_pelanggan WHERE stat_reservasi='1'")->result();
-		$data['mekanik'] = $this->db->query("SELECT * FROM `reservasi_service` JOIN pelanggan ON pelanggan.id_pelanggan=reservasi_service.id_pelanggan WHERE stat_reservasi='2'")->result();
-		$data['selesai'] = $this->db->query("SELECT * FROM `reservasi_service` JOIN pelanggan ON pelanggan.id_pelanggan=reservasi_service.id_pelanggan WHERE stat_reservasi='3'")->result();
+		$data['pembayaran'] = $this->db->query("SELECT * FROM `reservasi_service` JOIN pelanggan ON pelanggan.id_pelanggan=reservasi_service.id_pelanggan WHERE stat_reservasi='2'")->result();
+		$data['mekanik'] = $this->db->query("SELECT * FROM `reservasi_service` JOIN pelanggan ON pelanggan.id_pelanggan=reservasi_service.id_pelanggan WHERE stat_reservasi='3'")->result();
+		$data['selesai'] = $this->db->query("SELECT * FROM `reservasi_service` JOIN pelanggan ON pelanggan.id_pelanggan=reservasi_service.id_pelanggan WHERE stat_reservasi='4'")->result();
 		return $data;
 	}
 	public function update_stat($id, $data)

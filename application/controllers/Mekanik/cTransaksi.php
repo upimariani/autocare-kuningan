@@ -44,7 +44,7 @@ class cTransaksi extends CI_Controller
 	public function selesai($id)
 	{
 		$data = array(
-			'stat_reservasi' => '3'
+			'stat_reservasi' => '4'
 		);
 		$this->mReservasi->update_stat($id, $data);
 		$this->session->set_flashdata('success', 'Service Telah Selesai!');

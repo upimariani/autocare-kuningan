@@ -71,6 +71,12 @@
 
 								<a href="<?= base_url('Admin/cTransaksi') ?>"><i class="ik ik-shopping-cart"></i><span>Transaksi</span> <span class="badge badge-warning"></span> </a>
 							</div>
+							<div class="nav-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cPembayaran') {
+														echo 'active';
+													}  ?>">
+
+								<a href="<?= base_url('Admin/cPembayaran') ?>"><i class="ik ik-tag"></i><span>Konfirmasi Pembayaran</span> <span class="badge badge-warning"></span> </a>
+							</div>
 							<div class="nav-item <?php if ($this->uri->segment(1) == 'Admin' && $this->uri->segment(2) == 'cTransaksiSelesai') {
 														echo 'active';
 													}  ?>">

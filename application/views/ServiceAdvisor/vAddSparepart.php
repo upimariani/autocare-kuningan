@@ -47,7 +47,7 @@
 						<div class="form-group">
 							<label for="input-1">Nama Sparepart</label>
 							<select name="sparepart" id="sparepart" class="form-control" required>
-								<option value="">---Pilih Sparepart---</option>
+
 
 							</select>
 						</div>
@@ -388,6 +388,7 @@
 
 					var html = '';
 					var i;
+					html = '<option value="">---Pilih Sparepart---</option>';
 					for (i = 0; i < data.length; i++) {
 						html += '<option data-nama=' + data[i].nama_sparepart + ' data-harga=' + data[i].harga + ' data-stok=' + data[i].stok + ' value=' + data[i].id_sparepart + '>' + data[i].nama_sparepart + '</option>';
 					}

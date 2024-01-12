@@ -18,27 +18,33 @@
 				<form action="<?= base_url('Konsumen/cLogin/add_registrasi') ?>" method="POST" class="bg-light p-5 contact-form">
 					<div class="form-group">
 						<label>Nama Pelanggan</label>
-						<input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Pelanggan" required>
+						<input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Pelanggan">
+						<?= form_error('nama', '<small class="text-danger">', '</small>') ?>
+
 					</div>
 					<div class="form-group mb-3">
 						<label>Alamat</label>
-						<input type="text" name="alamat" class="form-control" placeholder="Masukkan Alamat" required>
+						<input type="text" name="alamat" class="form-control" placeholder="Masukkan Alamat">
+						<?= form_error('alamat', '<small class="text-danger">', '</small>') ?>
 					</div>
 					<div class="form-group mb-3">
 						<label>No Telepon</label>
-						<input type="number" name="no_hp" class="form-control" placeholder="Masukkan No Telepon" required>
+						<input type="number" name="no_hp" class="form-control" minlength="13" maxlength="13" placeholder="Masukkan No Telepon">
+						<?= form_error('no_hp', '<small class="text-danger">', '</small>') ?>
 					</div>
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="form-group mb-3">
 								<label>Username</label>
-								<input type="text" name="username" class="form-control" placeholder="Masukkan Username" required>
+								<input type="text" name="username" class="form-control" placeholder="Masukkan Username">
+								<?= form_error('username', '<small class="text-danger">', '</small>') ?>
 							</div>
 						</div>
 						<div class="col-lg-6">
 							<div class="form-group mb-3">
 								<label>Password</label>
-								<input type="text" name="password" class="form-control" placeholder="Masukkan Password" required>
+								<input type="text" name="password" class="form-control" placeholder="Masukkan Password">
+								<?= form_error('password', '<small class="text-danger">', '</small>') ?>
 							</div>
 						</div>
 					</div>

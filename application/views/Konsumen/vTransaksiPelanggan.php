@@ -46,7 +46,7 @@ if ($this->session->userdata('success')) {
 										<h5><?= $value->brand_kendaraan ?> | <?= $value->model_kendaraan ?> <?= $value->tahun_kendaraan ?> </h5>
 
 										<?php
-										if ($value->stat_reservasi == '3') {
+										if ($value->stat_reservasi == '4') {
 											$cek_data = $this->db->query("SELECT * FROM `ulasan` WHERE id_reservasi='" . $value->id_reservasi . "'")->row();
 											if (!$cek_data) {
 												if ($value->service_sesuai == '0') {

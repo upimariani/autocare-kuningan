@@ -76,7 +76,7 @@
 										<td><span class="badge bg-info">Proses Service</span></td>
 										<td>
 											<?php
-											if ($value->estimasi_service == NULL) {
+											if ($value->estimasi_service == NULL && $value->bukti_pembayaran != NULL) {
 											?>
 												<button type="button" class="btn btn-warning" data-toggle="modal" data-target="#demoModal<?= $value->id_reservasi ?>">Estimasi Pengerjaan</button>
 

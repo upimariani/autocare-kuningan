@@ -47,16 +47,29 @@ class cLogin extends CI_Controller
 	}
 	public function add_registrasi()
 	{
-		$data = array(
-			'nama_pelanggan' => $this->input->post('nama'),
-			'alamat' => $this->input->post('alamat'),
-			'no_hp' => $this->input->post('no_hp'),
-			'username' => $this->input->post('username'),
-			'password' => $this->input->post('password')
-		);
-		$this->mLogin->register($data);
-		$this->session->set_flashdata('success', 'Anda Berhasil Registrasi! Silahkan Melakukan Login!');
-		redirect('Konsumen/cLogin');
+		$this->form_validation->set_rules('nama', 'Nama Pelanggan', 'required');
+		$this->form_validation->set_rules('alamat', 'Alamat Pelanggan', 'required');
+		$this->form_validation->set_rules('no_hp', 'No Telepon Pelanggan', 'required|min_length[13]|max_length[13]');
+		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
+
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('Konsumen/Layout/head');
+			$this->load->view('Konsumen/Layout/nav');
+			$this->load->view('Konsumen/vRegistrasi');
+			$this->load->view('Konsumen/Layout/footer');
+		} else {
+			$data = array(
+				'nama_pelanggan' => $this->input->post('nama'),
+				'alamat' => $this->input->post('alamat'),
+				'no_hp' => $this->input->post('no_hp'),
+				'username' => $this->input->post('username'),
+				'password' => $this->input->post('password')
+			);
+			$this->mLogin->register($data);
+			$this->session->set_flashdata('success', 'Anda Berhasil Registrasi! Silahkan Melakukan Login!');
+			redirect('Konsumen/cLogin');
+		}
 	}
 	public function logout()
 	{

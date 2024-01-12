@@ -4,7 +4,7 @@
 			<div class="row align-items-end">
 				<div class="col-lg-8">
 					<div class="page-header-title">
-						<i class="ik ik-user-plus bg-blue"></i>
+						<i class="ik ik-settings bg-blue"></i>
 						<div class="d-inline">
 							<h5>Reservasi Service</h5>
 						</div>
@@ -45,7 +45,7 @@
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header">
-						<h3>Informasi Reservasi Service</h3>
+						<h3>Informasi Pembayaran Reservasi Service</h3>
 
 					</div>
 					<div class="card-body">
@@ -57,6 +57,8 @@
 									<th scope="col">Plat Kendaraan</th>
 									<th scope="col">Model Kendaraan</th>
 									<th scope="col">Brand Kendaraan</th>
+									<th scope="col">Tahun Kendaraan</th>
+									<th scope="col">Jam Kedatangan</th>
 									<th scope="col">Jenis Service</th>
 									<th scope="col">Status Reservasi</th>
 									<th scope="col">Konfirmasi</th>
@@ -65,7 +67,7 @@
 							<tbody>
 								<?php
 								$no = 1;
-								foreach ($transaksi['service_advisor'] as $key => $value) {
+								foreach ($transaksi['pembayaran'] as $key => $value) {
 								?>
 									<tr>
 										<th scope="row"><?= $no++ ?></th>
@@ -73,12 +75,15 @@
 										<td><?= $value->plat_kendaraan ?></td>
 										<td><?= $value->model_kendaraan ?></td>
 										<td><?= $value->brand_kendaraan ?></td>
+										<td><?= $value->tahun_kendaraan ?></td>
+										<td><?= $value->jam_kedatangan ?></td>
 										<td><?= $value->jenis_service ?></td>
-										<td><span class="badge bg-warning">Menunggu Konfirmasi Sparepart</span></td>
+										<td><span class="badge bg-danger">Konfirmasi Reservasi</span></td>
 
 										<td class="text-center">
 											<div class="table-actions">
-												<a href="<?= base_url('ServiceAdvisor/cTransaksi/add_sparepart/' . $value->id_reservasi) ?>"><i class="ik ik-check-circle"></i></a>
+												<a href="<?= base_url('Admin/cPembayaran/konfirmasi/' . $value->id_reservasi) ?>"><i class="ik ik-check-circle"></i></a>
+
 											</div>
 										</td>
 									</tr>
