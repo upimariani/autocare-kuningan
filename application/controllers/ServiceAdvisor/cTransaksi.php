@@ -98,6 +98,7 @@ class cTransaksi extends CI_Controller
 		$this->db->where('id_reservasi', $id);
 		$this->db->update('reservasi_service', $status);
 		$this->session->set_flashdata('success', 'Reservasi Sparepart Berhasil masuk ke merkanik!');
+		$this->cart->destroy();
 		redirect('ServiceAdvisor/cTransaksi');
 	}
 }

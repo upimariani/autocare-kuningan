@@ -20,6 +20,16 @@ class cPembayaran extends CI_Controller
 		$this->load->view('Admin/vPembayaran', $data);
 		$this->load->view('Admin/Layout/footer');
 	}
+	public function detail_pembayaran($id)
+	{
+		$data = array(
+			'detail' => $this->mReservasi->detail_transaksi($id)
+		);
+		$this->load->view('Admin/Layout/head');
+		$this->load->view('Admin/Layout/sidebar');
+		$this->load->view('Admin/vDetailTransaksi', $data);
+		$this->load->view('Admin/Layout/footer');
+	}
 	public function konfirmasi($id)
 	{
 		$data = array(

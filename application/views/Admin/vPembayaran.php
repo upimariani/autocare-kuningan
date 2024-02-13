@@ -61,7 +61,7 @@
 									<th scope="col">Jam Kedatangan</th>
 									<th scope="col">Jenis Service</th>
 									<th scope="col">Status Reservasi</th>
-									<th scope="col">Konfirmasi</th>
+									<th scope="col">Detail</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -78,12 +78,11 @@
 										<td><?= $value->tahun_kendaraan ?></td>
 										<td><?= $value->jam_kedatangan ?></td>
 										<td><?= $value->jenis_service ?></td>
-										<td><span class="badge bg-danger">Konfirmasi Reservasi</span></td>
+										<td><span class="badge bg-danger">Konfirmasi Pembayaran</span></td>
 
 										<td class="text-center">
 											<div class="table-actions">
-												<a href="<?= base_url('Admin/cPembayaran/konfirmasi/' . $value->id_reservasi) ?>"><i class="ik ik-check-circle"></i></a>
-
+												<a href="<?= base_url('Admin/cPembayaran/detail_pembayaran/' . $value->id_reservasi) ?>"><i class="ik ik-grid"></i></a>
 											</div>
 										</td>
 									</tr>

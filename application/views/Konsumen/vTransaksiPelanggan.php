@@ -152,7 +152,7 @@ if ($this->session->userdata('success')) {
 											<?php
 											} else if ($value->stat_reservasi == '2') {
 											?>
-												<span class="badge bg-info">Proses Service <br>
+												<span class="badge bg-info">Menunggu Konfirmasi Pembayaran <br>
 													<?php
 													if ($value->estimasi_service != NULL) {
 													?>
@@ -175,9 +175,21 @@ if ($this->session->userdata('success')) {
 												}
 												?>
 											<?php
+											} else if ($value->stat_reservasi == '3') {
+											?>
+												<span class="badge bg-warning">Proses Service</span>
+												<?php
+												if ($value->estimasi_service != NULL) {
+												?>
+													Estimasi Selesai: <?= $value->estimasi_service ?>
+												<?php
+												}
+												?>
+											<?php
 											} else {
 											?>
 												<span class="badge bg-success">Selesai</span>
+
 											<?php
 											}
 											?>
